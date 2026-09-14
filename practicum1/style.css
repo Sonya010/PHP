@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    color: #111827;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.job-card-header h2 {
+    font-size: 1.25rem;
+    color: #1f2937;
+}
+
+.company-name {
+    font-weight: 400;
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-remote {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge-office {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.job-card-body .salary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #374151;
+    font-size: 1.05rem;
+}
+
+.icon {
+    color: #9ca3af;
+}
+
+.aggregate-panel {
+    margin-top: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #0284c7; 
+}
+
+.aggregate-info h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.aggregate-info p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.aggregate-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0284c7;
+}
