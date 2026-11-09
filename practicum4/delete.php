@@ -1,8 +1,10 @@
 <?php
 require_once 'db.php';
-if (isset($_GET['id'])) {
-    $stmt = $pdo->prepare('DELETE FROM vacancies WHERE id = :id');
-    $stmt->execute([':id' => $_GET['id']]);
+
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($id) {
+    deleteVacancy($pdo, $id);
 }
+
 header('Location: index.php');
 exit;

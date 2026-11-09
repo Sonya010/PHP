@@ -1,7 +1,16 @@
 <?php
 require_once 'db.php';
-$stmt = $pdo->query("SELECT * FROM vacancies");
-$vacancies = $stmt->fetchAll();
+
+$searchCompany = trim($_GET['company'] ?? '');
+
+if ($searchCompany !== '') {
+    $vacancies = findByCompany($pdo, $searchCompany);
+} else {
+    $stmt = $pdo->query("SELECT * FROM vacancies");
+    $vacancies = $stmt->fetchAll();
+}
+
+$averageSalary = avgSalary($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -16,8 +25,25 @@ $vacancies = $stmt->fetchAll();
         <h1>Каталог IT-вакансій</h1>
         <p>Управління вакансіями через PDO/MySQL</p>
     </header>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-label">Середня зарплата на ринку</span>
+            <span class="stat-value">$<?= number_format($averageSalary, 2, '.', '') ?></span>
+        </div>
+    </div>
+
     <section class="job-card section-block">
         <h2 class="section-title">Усі відкриті позиції</h2>
+        
+        <form method="get" class="search-form">
+            <input type="text" name="company" class="form-control" placeholder="Пошук за компанією..." value="<?= htmlspecialchars($searchCompany) ?>">
+            <button type="submit" class="btn-submit btn-inline">Знайти</button>
+            <?php if ($searchCompany !== ''): ?>
+                <a href="index.php" class="btn-submit btn-inline" style="background-color: #6b7280; text-decoration: none;">Скинути</a>
+            <?php endif; ?>
+        </form>
+
         <div style="margin-bottom: 20px;">
             <a href="add.php" class="btn-submit btn-inline" style="text-decoration: none; display: inline-block;">Додати вакансію</a>
         </div>
