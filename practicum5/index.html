@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог вакансій — Job Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Каталог IT-вакансій</h1>
+        <p>Управління вакансіями через AJAX/JSON</p>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-label">Середня зарплата на ринку</span>
+            <span class="stat-value" id="avg-salary">$0.00</span>
+        </div>
+    </div>
+
+    <section class="job-card section-block">
+        <form id="add-form" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
+            <input type="text" id="title" class="form-control" required placeholder="Посада (напр. PHP Developer)">
+            <input type="text" id="company" class="form-control" required placeholder="Компанія">
+            <input type="number" id="salary_from" class="form-control" required placeholder="Зарплата від ($)">
+            <input type="number" id="salary_to" class="form-control" required placeholder="Зарплата до ($)">
+            <button type="submit" class="btn-submit">Додати вакансію</button>
+        </form>
+    </section>
+
+    <section class="job-card section-block">
+        <h2 class="section-title">Усі відкриті позиції</h2>
+        
+        <div class="search-form">
+            <input type="text" id="search" class="form-control" placeholder="Живий пошук за компанією...">
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Посада та компанія</th>
+                        <th>Зарплатна вилка</th>
+                    </tr>
+                </thead>
+                <tbody id="results">
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
